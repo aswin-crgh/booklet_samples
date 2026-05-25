@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Plant Cell Digital Booklet</title>
+    <link rel="icon" href="data:," />
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "./vendor/three/three.module.js",
+          "three/addons/": "./vendor/three/addons/"
+        }
+      }
+    </script>
+    <link rel="stylesheet" href="./styles.css?v=20260525-4" />
+  </head>
+  <body>
+    <nav class="page-icon-rail" aria-label="Booklet pages">
+      <a class="page-icon-tab active" href="#cover" data-page-target="cover" aria-label="Cover">
+        <svg viewBox="0 0 48 48" role="img" aria-hidden="true"><path d="M9 13c7-7 23-7 30 0v25c-7-5-23-5-30 0z"/><path d="M15 17h18M15 23h12"/></svg>
+        <span>Cover</span>
+      </a>
+      <a class="page-icon-tab" href="#page-immersive" data-page-target="page-immersive" aria-label="Explore">
+        <svg viewBox="0 0 48 48" role="img" aria-hidden="true"><ellipse cx="24" cy="25" rx="17" ry="12"/><circle cx="20" cy="24" r="5"/><path d="M32 18l5-5M35 28l6 2M13 30l-5 4"/></svg>
+        <span>Explore</span>
+      </a>
+      <a class="page-icon-tab" href="#page-microscope" data-page-target="page-microscope" aria-label="Microscope">
+        <svg viewBox="0 0 48 48" role="img" aria-hidden="true"><path d="M18 8h9v9l-5 6"/><path d="M17 31c7 4 16 1 20-6"/><path d="M12 39h24M19 39v-7M29 39v-9"/><circle cx="18" cy="27" r="4"/></svg>
+        <span>Scope</span>
+      </a>
+      <a class="page-icon-tab" href="#page-video" data-page-target="page-video" aria-label="Watch">
+        <svg viewBox="0 0 48 48" role="img" aria-hidden="true"><rect x="8" y="13" width="32" height="22" rx="5"/><path d="M21 19l10 5-10 6z"/></svg>
+        <span>Watch</span>
+      </a>
+      <a class="page-icon-tab" href="#page-flashcards" data-page-target="page-flashcards" aria-label="Flash cards">
+        <svg viewBox="0 0 48 48" role="img" aria-hidden="true"><rect x="12" y="10" width="24" height="28" rx="4"/><path d="M17 18h14M17 24h10M17 30h13"/></svg>
+        <span>Cards</span>
+      </a>
+      <a class="page-icon-tab" href="#page-quiz" data-page-target="page-quiz" aria-label="Quiz">
+        <svg viewBox="0 0 48 48" role="img" aria-hidden="true"><circle cx="24" cy="24" r="16"/><path d="M19 20c1-5 10-5 10 1 0 4-5 4-5 8M24 35h.1"/></svg>
+        <span>Quiz</span>
+      </a>
+      <a class="page-icon-tab" href="#page-extras" data-page-target="page-extras" aria-label="Extras">
+        <svg viewBox="0 0 48 48" role="img" aria-hidden="true"><circle cx="17" cy="17" r="6"/><circle cx="31" cy="18" r="5"/><path d="M8 37c2-8 16-8 18 0M23 37c2-7 14-7 17 0"/></svg>
+        <span>Extras</span>
+      </a>
+    </nav>
+    <main class="booklet" id="booklet">
+      <section class="booklet-page cover-page" id="cover" data-page-label="Cover">
+        <a class="page-arrow down" href="#page-immersive" aria-label="Go to Explore page">next - Explore</a>
+        <article class="cover-sheet paper-surface">
+          <p class="page-type">interactive science booklet</p>
+          <h1>PLANT CELL</h1>
+          <p class="cover-line">
+            A living notebook for exploring the tiny rooms inside plants.
+          </p>
+          <div class="cover-cell" aria-hidden="true">
+            <span class="cell-shell"></span>
+            <span class="cell-vacuole"></span>
+            <span class="cell-nucleus"></span>
+            <span class="leaf-dot d1"></span>
+            <span class="leaf-dot d2"></span>
+            <span class="leaf-dot d3"></span>
+            <span class="leaf-dot d4"></span>
+          </div>
+        </article>
+      </section>
+
+      <section class="booklet-page spread-page ftue-active" id="page-immersive" data-page-label="01 Explore">
+        <a class="page-arrow up" href="#cover" aria-label="Go to cover">previous - Cover</a>
+        <a class="page-arrow down" href="#page-microscope" aria-label="Go to microscope page">next - Under the Microscope</a>
+        <div class="page-type">01 Explore</div>
+        <article class="panel visual-panel">
+          <header class="panel-header">
+            <h2>Explore the Cell</h2>
+            <p class="ftue-line ftue-pulse" data-ftue-line="immersive">Rotate, zoom, tap a part, and read related notes.</p>
+          </header>
+          <div class="cell-viewer" id="cell-viewer">
+            <div class="viewer-status" data-viewer-status>loading plant cell...</div>
+            <div class="label-layer" data-label-layer></div>
+          </div>
+          <div class="tool-row">
+            <button type="button" data-viewer-action="play">pause</button>
+            <button type="button" data-viewer-action="rotate">rotate</button>
+            <button type="button" data-viewer-action="zoom">zoom</button>
+            <button type="button" data-viewer-action="labels">all labels</button>
+            <button type="button" data-viewer-action="isolate">isolate</button>
+            <button type="button" data-viewer-action="reset">reset</button>
+          </div>
+        </article>
+        <aside class="panel notes-panel">
+          <header class="panel-header compact">
+            <p class="eyebrow">linked notes</p>
+            <h2 data-notes-title>Nucleus</h2>
+            <p data-notes-hint>The nucleus stores instructions and helps direct cell activities.</p>
+          </header>
+          <section class="note-card lead">
+            <h3>What is a plant cell?</h3>
+            <p>
+              A plant cell has a strong
+              <button type="button" class="mark green" data-select-organelle="cell-wall">cell wall</button>,
+              a large <button type="button" class="mark blue" data-select-organelle="vacuole">vacuole</button>,
+              and green <button type="button" class="mark yellow" data-select-organelle="chloroplast">chloroplasts</button>.
+              Its <button type="button" class="mark teal" data-select-organelle="cell-membrane">cell membrane</button>
+              controls exchange, while the
+              <button type="button" class="mark violet" data-select-organelle="nucleus">nucleus</button>
+              carries instructions. Tap every highlighted word here, and all labels in the 3D simulation on the left, to explore detailed information.
+            </p>
+            <p>
+              Smaller helpers include
+              <button type="button" class="mark orange" data-select-organelle="mitochondrion">mitochondria</button>,
+              <button type="button" class="mark blue" data-select-organelle="rough-er">endoplasmic reticulum</button>,
+              <button type="button" class="mark yellow" data-select-organelle="golgi">Golgi apparatus</button>,
+              and <button type="button" class="mark red" data-select-organelle="ribosome">ribosomes</button>.
+            </p>
+          </section>
+          <section class="note-card detail" data-detail-card>
+            <h3 data-detail-title>Nucleus</h3>
+            <p data-detail-body>The control room of the cell. It stores instructions for cell activities.</p>
+            <dl data-detail-list></dl>
+          </section>
+        </aside>
+      </section>
+
+      <section class="booklet-page spread-page ftue-active" id="page-microscope" data-page-label="02 Microscope">
+        <a class="page-arrow up" href="#page-immersive" aria-label="Go to Explore page">previous - Explore</a>
+        <a class="page-arrow down" href="#page-video" aria-label="Go to video page">next - Video Roll</a>
+        <div class="page-type">02 Under The Microscope</div>
+        <article class="panel visual-panel">
+          <header class="panel-header micro-panel-header">
+            <p class="ftue-line">Use the arrows to compare real microscope views.</p>
+          </header>
+          <div class="micro-stage" data-micro-stage></div>
+        </article>
+        <aside class="panel notes-panel">
+          <header class="panel-header compact">
+            <p class="eyebrow">observation guide</p>
+            <h2>What changes under a microscope?</h2>
+            <p>Real cells are messier than diagrams. Look for repeated patterns, not perfect textbook shapes.</p>
+          </header>
+          <section class="note-card lead">
+            <h3>Tags To Notice</h3>
+            <p>
+              Use the tags on each image to connect what you see:
+              <span class="tag green">cell wall</span>
+              <span class="tag yellow">chloroplasts</span>
+              <span class="tag blue">stomata</span>
+              <span class="tag red">dividing cells</span>
+            </p>
+            <p>
+              Bigger microscope views help students compare a clean diagram with actual biological texture:
+              edges blur, cells overlap, stains add colour, and some organelles are too small to see clearly.
+            </p>
+          </section>
+          <section class="note-card detail" data-micro-copy></section>
+        </aside>
+      </section>
+
+      <section class="booklet-page spread-page ftue-active" id="page-video" data-page-label="03 Watch">
+        <a class="page-arrow up" href="#page-microscope" aria-label="Go to microscope page">previous - Under the Microscope</a>
+        <a class="page-arrow down" href="#page-flashcards" aria-label="Go to flash cards">next - Exam Prep</a>
+        <div class="page-type">03 Video Roll</div>
+        <article class="panel visual-panel">
+          <header class="panel-header">
+            <h2>Watch The Cell</h2>
+            <p class="ftue-line">Pick a video from the playlist to begin watching.</p>
+          </header>
+          <div class="video-shell">
+            <iframe
+              data-video-player
+              title="Plant cell video player"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </article>
+        <aside class="panel notes-panel">
+          <header class="panel-header compact">
+            <p class="eyebrow">playlist and transcript notes</p>
+            <h2 data-video-title>Microscope video</h2>
+            <p data-video-subtitle>Select a clip to play on the left.</p>
+          </header>
+          <div class="playlist" data-video-list></div>
+          <section class="note-card detail" data-video-notes></section>
+        </aside>
+      </section>
+
+      <section class="booklet-page full-page ftue-active" id="page-flashcards" data-page-label="04 Revise">
+        <a class="page-arrow up" href="#page-video" aria-label="Go to video page">previous - Video Roll</a>
+        <a class="page-arrow down" href="#page-quiz" aria-label="Go to quiz page">next - Mastery Quiz</a>
+        <div class="page-type">04 Exam Prep</div>
+        <article class="full-sheet panel">
+          <header class="panel-header centered">
+            <p class="eyebrow">flip to revise</p>
+            <h2>Flash Card Desk</h2>
+            <p class="ftue-line">Tap any card once to reveal the answer.</p>
+          </header>
+          <div class="flash-grid" data-flashcards></div>
+        </article>
+      </section>
+
+      <section class="booklet-page spread-page ftue-active" id="page-quiz" data-page-label="05 Quiz">
+        <a class="page-arrow up" href="#page-flashcards" aria-label="Go to flash cards">previous - Exam Prep</a>
+        <a class="page-arrow down" href="#page-extras" aria-label="Go to extras page">next - Extras</a>
+        <div class="page-type">05 Mastery Quiz</div>
+        <article class="panel quiz-panel locked" data-quiz-panel>
+          <header class="panel-header">
+            <h2>Timed Plant Cell Quiz</h2>
+            <p class="ftue-line">Press start when you are ready for the timed quiz.</p>
+          </header>
+          <div class="quiz-stack" data-quiz-stack></div>
+          <div class="quiz-start-overlay" data-quiz-start-overlay>
+            <p class="eyebrow">ready check</p>
+            <h3>Start the quiz?</h3>
+            <p>The questions will unlock and the timer will begin.</p>
+            <button class="primary-action" type="button" data-start-quiz>start quiz</button>
+          </div>
+        </article>
+        <aside class="panel score-panel">
+          <header class="panel-header compact">
+            <p class="eyebrow">quiz dashboard</p>
+            <h2>Mastery Meter</h2>
+          </header>
+          <div class="score-grid">
+            <div><span>time</span><strong data-timer>05:00</strong></div>
+            <div><span>score</span><strong data-score>0 / 8</strong></div>
+            <div><span>attempts</span><strong data-attempts>0</strong></div>
+            <div><span>status</span><strong data-quiz-status>paused</strong></div>
+          </div>
+          <button class="primary-action" type="button" data-reset-quiz>restart quiz</button>
+          <section class="note-card detail">
+            <h3>Think Like A Scientist</h3>
+            <p>A strong answer names the cell part, describes its job, and connects it to the needs of a living plant cell.</p>
+          </section>
+        </aside>
+      </section>
+
+      <section class="booklet-page spread-page" id="page-extras" data-page-label="06 Extras">
+        <a class="page-arrow up" href="#page-quiz" aria-label="Go to quiz page">previous - Mastery Quiz</a>
+        <a class="page-arrow down" href="#cover" aria-label="Go to cover">next - Cover</a>
+        <div class="page-type">06 Extras</div>
+        <article class="panel people-panel">
+          <header class="panel-header">
+            <h2>People Behind The Ideas</h2>
+            <p>Global and Indian contributors connected to cells and plant science.</p>
+          </header>
+          <div class="people-grid" data-people-grid></div>
+        </article>
+        <aside class="panel notes-panel">
+          <header class="panel-header compact">
+            <p class="eyebrow">contribution notes</p>
+            <h2 data-person-name>Robert Hooke</h2>
+            <p data-person-role>Named cells after observing cork.</p>
+          </header>
+          <section class="note-card detail" data-person-detail></section>
+        </aside>
+      </section>
+    </main>
+    <script type="module" src="./app.js?v=20260525-4"></script>
+  </body>
+</html>

@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title data-document-title>Digital Booklet</title>
+    <link rel="icon" href="data:," />
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "./vendor/three/three.module.js",
+          "three/addons/": "./vendor/three/addons/"
+        }
+      }
+    </script>
+    <link rel="stylesheet" href="./styles.css?v=template-9" />
+  </head>
+  <body>
+    <nav class="page-icon-rail" aria-label="Booklet pages" data-page-rail></nav>
+    <main class="booklet" id="booklet">
+      <section class="booklet-page cover-page" id="cover" data-page-label="Cover">
+        <a class="page-arrow down" href="#page-immersive" data-next-link>next - Explore</a>
+        <article class="cover-sheet paper-surface">
+          <p class="page-type" data-cover-kicker>interactive science booklet</p>
+          <h1 data-cover-title>BOOKLET</h1>
+          <p class="cover-line" data-cover-line>A living notebook for exploring ideas.</p>
+          <div class="cover-cell" aria-hidden="true" data-cover-art>
+            <span class="cell-shell"></span>
+            <span class="cell-vacuole"></span>
+            <span class="cell-nucleus"></span>
+            <span class="leaf-dot d1"></span>
+            <span class="leaf-dot d2"></span>
+            <span class="leaf-dot d3"></span>
+            <span class="leaf-dot d4"></span>
+          </div>
+        </article>
+      </section>
+
+      <section class="booklet-page spread-page ftue-active" id="page-immersive" data-page-label="01 Explore">
+        <a class="page-arrow up" href="#cover">previous - Cover</a>
+        <a class="page-arrow down" href="#page-gallery">next - Path</a>
+        <div class="page-type" data-immersive-label>01 Explore</div>
+        <article class="panel visual-panel">
+          <header class="panel-header">
+            <h2 data-immersive-title>Explore</h2>
+            <p class="ftue-line ftue-pulse" data-immersive-ftue>Rotate, zoom, tap a part, and read related notes.</p>
+          </header>
+          <div class="cell-viewer" id="cell-viewer">
+            <div class="viewer-status" data-viewer-status>loading model...</div>
+            <div class="label-layer" data-label-layer></div>
+          </div>
+          <div class="tool-row">
+            <button type="button" data-viewer-action="play">pause</button>
+            <button type="button" data-viewer-action="rotate">rotate</button>
+            <button type="button" data-viewer-action="zoom">zoom</button>
+            <button type="button" data-viewer-action="labels">all labels</button>
+            <button type="button" data-viewer-action="isolate">isolate</button>
+            <button type="button" data-viewer-action="reset">reset</button>
+          </div>
+        </article>
+        <aside class="panel notes-panel">
+          <header class="panel-header compact">
+            <p class="eyebrow" data-notes-eyebrow>linked notes</p>
+            <h2 data-notes-title></h2>
+            <p data-notes-hint></p>
+          </header>
+          <section class="note-card lead">
+            <h3 data-overview-title></h3>
+            <p data-overview-primary></p>
+            <p data-overview-secondary></p>
+          </section>
+          <section class="note-card detail" data-detail-card>
+            <h3 data-detail-title></h3>
+            <p data-detail-body></p>
+            <dl data-detail-list></dl>
+          </section>
+        </aside>
+      </section>
+
+      <section class="booklet-page spread-page ftue-active" id="page-gallery" data-page-label="02 Pathway Map">
+        <a class="page-arrow up" href="#page-immersive">previous - Explore</a>
+        <a class="page-arrow down" href="#page-video">next - Watch</a>
+        <div class="page-type" data-gallery-label>02 Gallery</div>
+        <article class="panel visual-panel">
+          <header class="panel-header micro-panel-header">
+            <p class="ftue-line" data-gallery-ftue>Use the arrows to compare views.</p>
+          </header>
+          <div class="micro-stage" data-gallery-stage></div>
+        </article>
+        <aside class="panel notes-panel">
+          <header class="panel-header compact">
+            <p class="eyebrow" data-gallery-eyebrow>observation guide</p>
+            <h2 data-gallery-title>Look Closely</h2>
+            <p data-gallery-body></p>
+          </header>
+          <section class="note-card lead" data-gallery-guide></section>
+          <section class="note-card detail" data-gallery-copy></section>
+        </aside>
+      </section>
+
+      <section class="booklet-page spread-page ftue-active" id="page-video" data-page-label="03 Watch">
+        <a class="page-arrow up" href="#page-gallery">previous - Path</a>
+        <a class="page-arrow down" href="#page-flashcards">next - Exam Prep</a>
+        <div class="page-type" data-video-label>03 Watch</div>
+        <article class="panel visual-panel">
+          <header class="panel-header">
+            <h2 data-video-page-title>Watch</h2>
+            <p class="ftue-line" data-video-ftue>Pick a video from the playlist to begin watching.</p>
+          </header>
+          <div class="video-shell">
+            <iframe
+              data-video-player
+              title="Booklet video player"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </article>
+        <aside class="panel notes-panel">
+          <header class="panel-header compact">
+            <p class="eyebrow">playlist and transcript notes</p>
+            <h2 data-video-title></h2>
+            <p data-video-subtitle></p>
+          </header>
+          <div class="playlist" data-video-list></div>
+          <section class="note-card detail" data-video-notes></section>
+        </aside>
+      </section>
+
+      <section class="booklet-page full-page ftue-active" id="page-flashcards" data-page-label="04 Revise">
+        <a class="page-arrow up" href="#page-video">previous - Watch</a>
+        <a class="page-arrow down" href="#page-quiz">next - Mastery Quiz</a>
+        <div class="page-type">04 Exam Prep</div>
+        <article class="full-sheet panel">
+          <header class="panel-header centered">
+            <p class="eyebrow">flip to revise</p>
+            <h2 data-flashcards-title>Flash Card Desk</h2>
+            <p class="ftue-line">Tap any card once to reveal the answer.</p>
+          </header>
+          <div class="flash-grid" data-flashcards></div>
+        </article>
+      </section>
+
+      <section class="booklet-page spread-page ftue-active" id="page-quiz" data-page-label="05 Quiz">
+        <a class="page-arrow up" href="#page-flashcards">previous - Exam Prep</a>
+        <a class="page-arrow down" href="#page-extras">next - Extras</a>
+        <div class="page-type">05 Mastery Quiz</div>
+        <article class="panel quiz-panel locked" data-quiz-panel>
+          <header class="panel-header">
+            <h2 data-quiz-title>Timed Quiz</h2>
+            <p class="ftue-line">Press start when you are ready for the timed quiz.</p>
+          </header>
+          <div class="quiz-stack" data-quiz-stack></div>
+          <div class="quiz-start-overlay" data-quiz-start-overlay>
+            <p class="eyebrow">ready check</p>
+            <h3>Start the quiz?</h3>
+            <p>The questions will unlock and the timer will begin.</p>
+            <button class="primary-action" type="button" data-start-quiz>start quiz</button>
+          </div>
+        </article>
+        <aside class="panel score-panel">
+          <header class="panel-header compact">
+            <p class="eyebrow">quiz dashboard</p>
+            <h2>Mastery Meter</h2>
+          </header>
+          <div class="score-grid">
+            <div><span>time</span><strong data-timer>05:00</strong></div>
+            <div><span>score</span><strong data-score>0 / 0</strong></div>
+            <div><span>attempts</span><strong data-attempts>0</strong></div>
+            <div><span>status</span><strong data-quiz-status>paused</strong></div>
+          </div>
+          <button class="primary-action" type="button" data-reset-quiz>restart quiz</button>
+          <section class="note-card detail">
+            <h3>Think Like A Scientist</h3>
+            <p data-quiz-help>A strong answer names the part, describes its job, and connects it to the whole pathway.</p>
+          </section>
+        </aside>
+      </section>
+
+      <section class="booklet-page spread-page" id="page-extras" data-page-label="06 Extras">
+        <a class="page-arrow up" href="#page-quiz">previous - Mastery Quiz</a>
+        <a class="page-arrow down" href="#cover">next - Cover</a>
+        <div class="page-type">06 Extras</div>
+        <article class="panel people-panel">
+          <header class="panel-header">
+            <h2 data-extras-title>People Behind The Ideas</h2>
+            <p data-extras-subtitle></p>
+          </header>
+          <div class="people-grid" data-people-grid></div>
+        </article>
+        <aside class="panel notes-panel">
+          <header class="panel-header compact">
+            <p class="eyebrow">contribution notes</p>
+            <h2 data-person-name></h2>
+            <p data-person-role></p>
+          </header>
+          <section class="note-card detail" data-person-detail></section>
+        </aside>
+      </section>
+    </main>
+    <script type="module" src="./app.js?v=template-9"></script>
+  </body>
+</html>

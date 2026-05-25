@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Plant Cell Notebook</title>
+    <link rel="icon" href="data:," />
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "./vendor/three/three.module.js",
+          "three/addons/": "./vendor/three/addons/"
+        }
+      }
+    </script>
+    <link rel="stylesheet" href="./styles.css?v=20260525-4" />
+  </head>
+  <body>
+    <main class="notebook-app">
+      <section class="cover-page" aria-labelledby="cover-title">
+        <div class="desk-strip" aria-hidden="true">
+          <span class="pen pen-blue"></span>
+          <span class="pen pen-green"></span>
+          <span class="pen pen-red"></span>
+        </div>
+
+        <article class="paper cover-sheet">
+          <div class="cover-kicker">interactive science notes</div>
+          <h1 id="cover-title">PLANT CELL</h1>
+          <p class="cover-blurb">
+            A tiny living room where food is made, water is stored, and every
+            part has a job.
+          </p>
+
+          <div class="hero-sketch" role="img" aria-label="Sketched plant cell cover illustration">
+            <div class="cell-orbit orbit-one"></div>
+            <div class="cell-orbit orbit-two"></div>
+            <div class="cell-orbit orbit-three"></div>
+            <div class="plant-cell-illo large-cell">
+              <span class="cell-core"></span>
+              <span class="vacuole"></span>
+              <span class="chloroplast c1"></span>
+              <span class="chloroplast c2"></span>
+              <span class="chloroplast c3"></span>
+              <span class="mito m1"></span>
+              <span class="mito m2"></span>
+            </div>
+          </div>
+
+          <div class="cover-actions">
+            <a class="ink-button primary" href="#explorer">open notebook</a>
+            <a class="circled-link" href="#quick-notes">what will I learn?</a>
+          </div>
+        </article>
+      </section>
+
+      <section class="workspace" id="explorer" aria-labelledby="workspace-title">
+        <div class="page-rail" aria-label="Topic pages">
+          <a class="page-step active" href="#plant-cell-page">01 Cell Map</a>
+          <a class="page-step" href="#photosynthesis-page">02 Food Factory</a>
+          <a class="page-step" href="#compare-page">03 Compare</a>
+        </div>
+
+        <article class="book-spread topic-page active" id="plant-cell-page">
+          <section class="paper page visual-page" aria-labelledby="workspace-title">
+            <header class="page-header">
+              <p class="section-label">left page</p>
+              <h2 id="workspace-title">Explore the Cell</h2>
+              <p>
+                Pick an artifact for this page. The right side will explain
+                what you are exploring.
+              </p>
+            </header>
+
+            <nav class="artifact-tabs" aria-label="Explore artifacts">
+              <button class="artifact-tab active" type="button" data-artifact="cell3d">3D Cell</button>
+              <button class="artifact-tab" type="button" data-artifact="applet">under the microscope</button>
+              <button class="artifact-tab" type="button" data-artifact="watch">watch</button>
+            </nav>
+
+            <div class="viewer-plate" id="cell-viewer" aria-label="Interactive 3D plant cell viewer">
+              <div class="viewport-note note-top" data-viewer-status>loading plant cell...</div>
+              <div class="viewer-label-layer" data-label-layer aria-hidden="true"></div>
+            </div>
+
+            <section class="microscope-gallery" data-microscope-gallery aria-label="Plant cell microscope gallery"></section>
+
+            <section class="watch-gallery" data-watch-gallery aria-label="Plant cell video gallery">
+              <div class="video-player-card">
+                <iframe
+                  data-video-frame
+                  title="Plant cell video player"
+                  src="https://www.youtube.com/embed/EaRowyAq9o4"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen
+                ></iframe>
+              </div>
+              <div class="video-list" data-video-list></div>
+              <article class="video-transcript-note" data-video-note></article>
+            </section>
+
+            <section class="viewer-mode-card active" data-artifact-card="cell3d">
+              <strong>3D Cell:</strong> rotate, zoom, tap, isolate, and switch
+              between key labels and all labels.
+            </section>
+
+            <section class="viewer-mode-card" data-artifact-card="applet">
+              <strong>Under the microscope:</strong> swipe through real plant
+              cell views and connect what you see back to the diagram.
+            </section>
+
+            <section class="viewer-mode-card watch-card" data-artifact-card="watch">
+              <div>
+                <strong>Watch:</strong> pick a video, play it here, and use the
+                transcript notes as a quick notebook guide.
+              </div>
+              <button class="breadcrumb-chip" type="button" data-artifact="cell3d">back to 3D Cell</button>
+            </section>
+
+            <div class="control-strip" aria-label="Viewer controls mockup">
+              <button type="button" class="tool active" data-viewer-action="play">play</button>
+              <button type="button" class="tool active" data-viewer-action="rotate">rotate</button>
+              <button type="button" class="tool" data-viewer-action="zoom">zoom</button>
+              <button type="button" class="tool active" data-viewer-action="label-density">all labels</button>
+              <button type="button" class="tool" data-viewer-action="isolate">isolate</button>
+              <button type="button" class="tool" data-viewer-action="reset">reset</button>
+            </div>
+          </section>
+
+          <aside class="paper page notes-page" id="quick-notes" aria-labelledby="notes-title">
+            <header class="page-header compact">
+              <p class="section-label">right page</p>
+              <h2 id="notes-title" data-notes-title>Nucleus Notes</h2>
+              <p class="response-hint" data-response-hint>
+                This page enriches the artifact on the left.
+              </p>
+            </header>
+
+            <nav class="content-tabs" aria-label="Right page sections">
+              <button class="content-tab active" type="button" data-panel="notes-panel">Notes</button>
+              <button class="content-tab" type="button" data-panel="quiz-panel">Quiz</button>
+              <button class="content-tab" type="button" data-panel="flipcards-panel">Flip Cards</button>
+              <button class="content-tab" type="button" data-panel="facts-panel">Scientists</button>
+            </nav>
+
+            <section class="panel-section active-panel" id="notes-panel" aria-label="Notes panel">
+            <article class="note-card lead-card" data-summary-card>
+              <h3>What is a plant cell?</h3>
+              <p>
+                A plant cell is the basic building block of a plant. It has a
+                strong <button class="highlight-link green-mark" type="button" data-select-organelle="cell-wall">cell wall</button>, a large
+                <button class="highlight-link blue-mark" type="button" data-select-organelle="vacuole">vacuole</button>, and green
+                <button class="highlight-link yellow-mark" type="button" data-select-organelle="chloroplast">chloroplasts</button> that help make food.
+                Its living boundary is the <button class="highlight-link membrane-mark" type="button" data-select-organelle="cell-membrane">cell membrane</button>, and the
+                <button class="highlight-link nucleus-mark" type="button" data-select-organelle="nucleus">nucleus</button> stores instructions for the cell.
+                Tap every highlighted word here, and all labels in the 3D simulation on the left, to explore detailed information.
+              </p>
+              <p class="secondary-description">
+                Smaller helpers include <button class="highlight-link mito-mark" type="button" data-select-organelle="mitochondrion">mitochondria</button> for energy,
+                <button class="highlight-link er-mark" type="button" data-select-organelle="rough-er">endoplasmic reticulum</button> for moving materials,
+                <button class="highlight-link golgi-mark" type="button" data-select-organelle="golgi">Golgi apparatus</button> for packaging, and
+                <button class="highlight-link ribosome-mark" type="button" data-select-organelle="ribosome">ribosomes</button> for protein building.
+              </p>
+            </article>
+
+            <article class="note-card detail-card" data-detail-card>
+              <h3 data-detail-title>Nucleus</h3>
+              <p data-detail-body>
+                The nucleus is the control room of the cell. It stores the
+                instructions that guide cell activities.
+              </p>
+              <dl class="detail-list" data-detail-list></dl>
+            </article>
+
+            </section>
+
+            <section class="panel-section" id="facts-panel" aria-label="Facts panel">
+            <div class="scientist-stack" data-scientist-stack></div>
+            </section>
+
+            <section class="panel-section" id="quiz-panel" aria-label="Quiz panel">
+            <header class="quiz-score-card">
+              <div>
+                <p class="section-label">scored practice</p>
+                <h3>Organelle Quiz</h3>
+              </div>
+              <output data-score-output>0 / 0</output>
+            </header>
+            <div class="quiz-stack" id="quiz-card" data-quiz-stack></div>
+            </section>
+
+            <section class="panel-section" id="flipcards-panel" aria-label="Flip cards panel">
+            <section class="flip-gallery" aria-label="Flip card gallery">
+              <p class="section-label">quick recall</p>
+              <h3>Flip Card Gallery</h3>
+              <div class="flip-gallery-grid" data-flip-gallery></div>
+            </section>
+            </section>
+          </aside>
+        </article>
+      </section>
+    </main>
+    <script type="module" src="./app.js?v=20260525-4"></script>
+  </body>
+</html>

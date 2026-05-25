@@ -1,0 +1,9 @@
+.DS_Store
+.venv/
+Archive.zip
+Systems/
+tmp-*.png
+concept 1.png
+concept 2.png
+__pycache__/
+*.pyc

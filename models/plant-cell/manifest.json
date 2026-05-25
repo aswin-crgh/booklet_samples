@@ -1,0 +1,105 @@
+{
+  "name": "Procedural Plant Cell Starter Pack",
+  "license": "Generated locally for this project. Free to use and modify.",
+  "units": "arbitrary",
+  "organelles": [
+    {
+      "id": "cell-wall",
+      "label": "Cell Wall",
+      "file": "./models/plant-cell/cell-wall.glb",
+      "position": [0, 0, 0],
+      "scale": 1
+    },
+    {
+      "id": "cell-membrane",
+      "label": "Cell Membrane",
+      "file": "./models/plant-cell/cell-membrane.glb",
+      "position": [0, 0, 0],
+      "scale": 1
+    },
+    {
+      "id": "vacuole",
+      "label": "Central Vacuole",
+      "file": "./models/plant-cell/vacuole.glb",
+      "position": [0.35, -0.08, 0.05],
+      "scale": 1
+    },
+    {
+      "id": "nucleus",
+      "label": "Nucleus",
+      "file": "./models/plant-cell/nucleus.glb",
+      "position": [-0.75, 0.12, 0.28],
+      "scale": 1
+    },
+    {
+      "id": "chloroplast-1",
+      "label": "Chloroplast",
+      "file": "./models/plant-cell/chloroplast.glb",
+      "position": [0.9, 0.45, 0.42],
+      "scale": 0.72
+    },
+    {
+      "id": "chloroplast-2",
+      "label": "Chloroplast",
+      "file": "./models/plant-cell/chloroplast.glb",
+      "position": [-1.05, -0.42, -0.28],
+      "scale": 0.68
+    },
+    {
+      "id": "chloroplast-3",
+      "label": "Chloroplast",
+      "file": "./models/plant-cell/chloroplast.glb",
+      "position": [1.12, -0.38, -0.32],
+      "scale": 0.6
+    },
+    {
+      "id": "mitochondrion-1",
+      "label": "Mitochondrion",
+      "file": "./models/plant-cell/mitochondrion.glb",
+      "position": [-0.15, 0.58, -0.35],
+      "scale": 0.55
+    },
+    {
+      "id": "mitochondrion-2",
+      "label": "Mitochondrion",
+      "file": "./models/plant-cell/mitochondrion.glb",
+      "position": [0.62, -0.55, 0.32],
+      "scale": 0.5
+    },
+    {
+      "id": "golgi",
+      "label": "Golgi Apparatus",
+      "file": "./models/plant-cell/golgi-apparatus.glb",
+      "position": [-0.25, -0.5, 0.38],
+      "scale": 0.48
+    },
+    {
+      "id": "rough-er",
+      "label": "Rough ER",
+      "file": "./models/plant-cell/rough-er.glb",
+      "position": [-0.48, 0.08, 0.05],
+      "scale": 0.5
+    },
+    {
+      "id": "smooth-er",
+      "label": "Smooth ER",
+      "file": "./models/plant-cell/smooth-er.glb",
+      "position": [0.42, 0.38, -0.18],
+      "scale": 0.5
+    },
+    {
+      "id": "peroxisome",
+      "label": "Peroxisome",
+      "file": "./models/plant-cell/peroxisome.glb",
+      "position": [0.92, 0.02, -0.42],
+      "scale": 0.65
+    },
+    {
+      "id": "ribosome",
+      "label": "Ribosome",
+      "file": "./models/plant-cell/ribosome.glb",
+      "position": [-0.95, 0.48, 0.02],
+      "scale": 1
+    }
+  ]
+}
