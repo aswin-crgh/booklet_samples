@@ -11,7 +11,6 @@ const aliases = new Map([
   ["/circulatory-system", "booklet/human-systems/circulatory-system"],
   ["/excretory-system", "booklet/human-systems/excretory-system"],
   ["/plant-cell", "booklet/plant-cell"],
-  ["/plant-cell-explorer", "."],
 ]);
 
 const bookletLinks = [
@@ -44,12 +43,6 @@ const bookletLinks = [
     kicker: "Human Biology",
     title: "Excretory System",
     body: "Follow the urinary pathway from blood filtration to urine storage and release.",
-  },
-  {
-    href: "/plant-cell-explorer/",
-    kicker: "Interactive Lab",
-    title: "Plant Cell Explorer",
-    body: "Open the larger notebook-style plant cell workspace with 3D, microscope, video, notes, and practice panels.",
   },
 ];
 

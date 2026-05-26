@@ -1,4 +1,5 @@
-import { cp, mkdir, readFile, rm, writeFile } from "node:fs/promises";
+import { cp, mkdir, mkdtemp, readFile, rm, writeFile } from "node:fs/promises";
+import { tmpdir } from "node:os";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { organSystemBooklets, sharedHumanSystemsExtras } from "./data/human-organ-systems.js";
@@ -407,25 +408,36 @@ function normalizeSystem(system) {
 
 for (const system of Object.values(organSystemBooklets)) {
   const targetDir = join(here, system.id);
-  await rm(targetDir, { recursive: true, force: true });
-  await cp(templateDir, targetDir, { recursive: true });
-  await rm(join(targetDir, "booklet.config.js"), { force: true });
-  await mkdir(join(targetDir, "models"), { recursive: true });
-  await cp(system.assetFolder, join(targetDir, "models"), { recursive: true });
-  const config = normalizeSystem(system);
-  const galleryPageLabel = config.pages.gallery.label;
-  const galleryNavLabel = config.pages.gallery.navLabel || galleryPageLabel.replace(/^\d+\s*/, "");
-  const indexPath = join(targetDir, "index.html");
-  const indexHtml = await readFile(indexPath, "utf8");
-  await writeFile(
-    indexPath,
-    indexHtml
-      .replaceAll('next - Gallery', `next - ${galleryNavLabel}`)
-      .replaceAll('previous - Gallery', `previous - ${galleryNavLabel}`)
-      .replaceAll('data-page-label="02 Gallery"', `data-page-label="${galleryPageLabel}"`),
-  );
-  await writeFile(
-    join(targetDir, "booklet.config.js"),
-    `export const bookletConfig = ${JSON.stringify(config, null, 2)};\n`,
-  );
+  const tempDir = await mkdtemp(join(tmpdir(), `booklet-${system.id}-`));
+  const modelSourceDir = system.assetFolder || join(tempDir, "models");
+
+  try {
+    if (!system.assetFolder) {
+      await cp(join(targetDir, "models"), modelSourceDir, { recursive: true });
+    }
+
+    await rm(targetDir, { recursive: true, force: true });
+    await cp(templateDir, targetDir, { recursive: true });
+    await rm(join(targetDir, "booklet.config.js"), { force: true });
+    await mkdir(join(targetDir, "models"), { recursive: true });
+    await cp(modelSourceDir, join(targetDir, "models"), { recursive: true });
+    const config = normalizeSystem(system);
+    const galleryPageLabel = config.pages.gallery.label;
+    const galleryNavLabel = config.pages.gallery.navLabel || galleryPageLabel.replace(/^\d+\s*/, "");
+    const indexPath = join(targetDir, "index.html");
+    const indexHtml = await readFile(indexPath, "utf8");
+    await writeFile(
+      indexPath,
+      indexHtml
+        .replaceAll('next - Gallery', `next - ${galleryNavLabel}`)
+        .replaceAll('previous - Gallery', `previous - ${galleryNavLabel}`)
+        .replaceAll('data-page-label="02 Gallery"', `data-page-label="${galleryPageLabel}"`),
+    );
+    await writeFile(
+      join(targetDir, "booklet.config.js"),
+      `export const bookletConfig = ${JSON.stringify(config, null, 2)};\n`,
+    );
+  } finally {
+    await rm(tempDir, { recursive: true, force: true });
+  }
 }

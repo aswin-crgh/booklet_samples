@@ -32,7 +32,6 @@ export const organSystemBooklets = {
     id: "digestive-system",
     title: "Digestive System",
     subtitle: "How food travels, breaks down, and becomes useful to the body.",
-    assetFolder: "/Users/aswin/Work/Trial 3d/Systems/Digestive pathway",
     theme: {
       accent: "#c65a32",
       secondary: "#e8b04f",
@@ -206,7 +205,6 @@ export const organSystemBooklets = {
     id: "respiratory-system",
     title: "Respiratory System",
     subtitle: "How air enters, reaches the lungs, and helps the body get oxygen.",
-    assetFolder: "/Users/aswin/Work/Trial 3d/Systems/Breathing Pathway",
     theme: {
       accent: "#2f78b7",
       secondary: "#7fb7d8",
@@ -267,7 +265,6 @@ export const organSystemBooklets = {
     id: "circulatory-system",
     title: "Circulatory System",
     subtitle: "How blood carries oxygen, nutrients, and wastes around the body.",
-    assetFolder: "/Users/aswin/Work/Trial 3d/Systems/Circulation Pathway",
     theme: {
       accent: "#b8413e",
       secondary: "#315f9b",
@@ -324,7 +321,6 @@ export const organSystemBooklets = {
     id: "excretory-system",
     title: "Excretory System",
     subtitle: "How the body filters blood and removes liquid waste.",
-    assetFolder: "/Users/aswin/Work/Trial 3d/Systems/Excretion Pathway",
     theme: {
       accent: "#6f63a8",
       secondary: "#78a88b",

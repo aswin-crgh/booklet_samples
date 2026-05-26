@@ -17,4 +17,3 @@ Then open `http://localhost:8031/`.
 - Respiratory System: `booklet/human-systems/respiratory-system/`
 - Circulatory System: `booklet/human-systems/circulatory-system/`
 - Excretory System: `booklet/human-systems/excretory-system/`
-- Plant Cell Explorer: `plant-cell-explorer.html`
