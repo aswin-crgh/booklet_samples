@@ -831,6 +831,16 @@ function setPerson(index) {
 }
 
 function setupEvents() {
+  $$("[data-page-target]").forEach((tab) => {
+    tab.addEventListener("click", (event) => {
+      const page = document.querySelector(`#${tab.dataset.pageTarget}`);
+      if (!page) return;
+      event.preventDefault();
+      page.scrollIntoView({ behavior: "smooth", block: "start" });
+      history.replaceState(null, "", `#${tab.dataset.pageTarget}`);
+    });
+  });
+
   viewerActions.forEach((button) => {
     button.addEventListener("click", () => {
       stopFtue("page-immersive");

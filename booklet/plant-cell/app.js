@@ -916,6 +916,16 @@ document.querySelectorAll("[data-select-organelle]").forEach((button) => {
   button.addEventListener("click", () => selectOrganelleByKey(button.dataset.selectOrganelle));
 });
 
+pageIconTabs.forEach((tab) => {
+  tab.addEventListener("click", (event) => {
+    const page = document.querySelector(`#${tab.dataset.pageTarget}`);
+    if (!page) return;
+    event.preventDefault();
+    page.scrollIntoView({ behavior: "smooth", block: "start" });
+    history.replaceState(null, "", `#${tab.dataset.pageTarget}`);
+  });
+});
+
 viewerActions.forEach((button) => {
   button.addEventListener("click", () => {
     stopFtue("page-immersive");
